@@ -12,10 +12,12 @@
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18.16.19",
+    "@types/pg": "^8.10.2",
     "nuxt": "^3.6.3"
   },
   "dependencies": {
     "kysely": "^0.26.1",
-    "lucia-auth": "^1.8.0"
+    "lucia-auth": "^1.8.0",
+    "pg": "^8.11.1"
   }
 }
