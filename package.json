@@ -15,10 +15,11 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18.16.19",
     "@types/pg": "^8.10.2",
-    "nuxt": "^3.6.3"
+    "nuxt": "^3.6.3",
+    "prisma": "^5.0.0"
   },
   "dependencies": {
-    "kysely": "^0.26.1",
+    "@prisma/client": "^5.0.0",
     "lucia": "^1.0.0",
     "lucia-auth": "^1.8.0",
     "pg": "^8.11.1"
