@@ -9,10 +9,10 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@lucia-auth/adapter-postgresql": "^1.0.1",
     "@nuxt/devtools": "latest",
     "@nuxtjs/google-fonts": "^3.0.1",
     "@nuxtjs/tailwindcss": "^6.8.0",
+    "@sidebase/nuxt-auth": "0.6.0-beta.3",
     "@types/node": "^18.16.19",
     "@types/pg": "^8.10.2",
     "nuxt": "^3.6.3",
@@ -20,8 +20,6 @@
   },
   "dependencies": {
     "@prisma/client": "^5.0.0",
-    "lucia": "^1.0.0",
-    "lucia-auth": "^1.8.0",
-    "pg": "^8.11.1"
+    "next-auth": "4.21.1"
   }
 }
