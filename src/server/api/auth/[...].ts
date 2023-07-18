@@ -8,4 +8,5 @@ export default NuxtAuthHandler({
 			clientSecret: process.env.CLIENT_SECRET,
 		}),
 	],
+	secret: process.env.AUTH_SECRET,
 })
