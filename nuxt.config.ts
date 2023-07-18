@@ -12,6 +12,11 @@ export default defineNuxtConfig({
 		families: { Inter: true },
 		useStylesheet: true,
 	},
-	app: { head: { htmlAttrs: { class: 'dark' } } },
+	app: {
+		head: {
+			htmlAttrs: { class: 'dark' },
+			bodyAttrs: { class: 'dark:bg-[#171717] dark:text-[#fafaf9]' },
+		},
+	},
 	experimental: { typedPages: true },
 })
