@@ -8,4 +8,6 @@ export default defineNuxtConfig({
 		families: { Inter: true },
 		useStylesheet: true,
 	},
+	app: { head: { htmlAttrs: { class: 'dark' } } },
+	experimental: { typedPages: true },
 })
