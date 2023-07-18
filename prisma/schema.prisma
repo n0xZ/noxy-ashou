@@ -47,5 +47,21 @@ model User {
   isContentPublic Boolean @default(false)
   accounts      Account[]
   sessions      Session[]
+projects Project[]
+}
 
+model Project{
+  id           String    @id @default(cuid())
+  name String
+  description String?
+  user User @relation(fields: [id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  scores LighthouseScore[]
+}
+model LighthouseScore{
+  id         String    @id @default(cuid())
+  lcpScore String
+  lcsScore String
+  clsScore String
+  createdAt DateTime @default(now())
+  project Project @relation(fields: [id], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
