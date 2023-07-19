@@ -19,6 +19,7 @@
     "prisma": "^5.0.0"
   },
   "dependencies": {
+    "@ark-ui/vue": "^0.5.3",
     "@prisma/client": "^5.0.0",
     "next-auth": "4.21.1"
   }
