@@ -25,6 +25,9 @@ devDependencies:
   '@nuxtjs/tailwindcss':
     specifier: ^6.8.0
     version: 6.8.0(webpack@5.88.1)
+  '@playwright/test':
+    specifier: ^1.36.1
+    version: 1.36.1
   '@sidebase/nuxt-auth':
     specifier: 0.6.0-beta.3
     version: 0.6.0-beta.3(next-auth@4.21.1)(vue@3.3.4)
@@ -1347,6 +1350,17 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@playwright/test@1.36.1:
+    resolution: {integrity: sha512-YK7yGWK0N3C2QInPU6iaf/L3N95dlGdbsezLya4n0ZCh3IL7VgPGxC6Gnznh9ApWdOmkJeleT2kMTcWPRZvzqg==}
+    engines: {node: '>=16'}
+    hasBin: true
+    dependencies:
+      '@types/node': 18.16.19
+      playwright-core: 1.36.1
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
 
   /@polka/url@1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
@@ -5759,6 +5773,12 @@ packages:
       jsonc-parser: 3.2.0
       mlly: 1.4.0
       pathe: 1.1.1
+    dev: true
+
+  /playwright-core@1.36.1:
+    resolution: {integrity: sha512-7+tmPuMcEW4xeCL9cp9KxmYpQYHKkyjwoXRnoeTowaeNat8PoBMk/HwCYhqkH2fRkshfKEOiVus/IhID2Pg8kg==}
+    engines: {node: '>=16'}
+    hasBin: true
     dev: true
 
   /portfinder@1.0.32:
