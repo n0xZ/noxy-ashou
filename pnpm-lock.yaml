@@ -1332,7 +1332,22 @@ packages:
     dev: true
     optional: true
 
+<<<<<<< HEAD
   /@polka/url/1.0.0-next.21:
+=======
+  /@playwright/test@1.36.1:
+    resolution: {integrity: sha512-YK7yGWK0N3C2QInPU6iaf/L3N95dlGdbsezLya4n0ZCh3IL7VgPGxC6Gnznh9ApWdOmkJeleT2kMTcWPRZvzqg==}
+    engines: {node: '>=16'}
+    hasBin: true
+    dependencies:
+      '@types/node': 18.16.19
+      playwright-core: 1.36.1
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /@polka/url@1.0.0-next.21:
+>>>>>>> e91626072927cb964f74b2897eeb57c4ce59cad1
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
@@ -6011,7 +6026,17 @@ packages:
       pathe: 1.1.1
     dev: true
 
+<<<<<<< HEAD
   /portfinder/1.0.32:
+=======
+  /playwright-core@1.36.1:
+    resolution: {integrity: sha512-7+tmPuMcEW4xeCL9cp9KxmYpQYHKkyjwoXRnoeTowaeNat8PoBMk/HwCYhqkH2fRkshfKEOiVus/IhID2Pg8kg==}
+    engines: {node: '>=16'}
+    hasBin: true
+    dev: true
+
+  /portfinder@1.0.32:
+>>>>>>> e91626072927cb964f74b2897eeb57c4ce59cad1
     resolution: {integrity: sha512-on2ZJVVDXRADWE6jnQaX0ioEylzgBpQk8r55NE4wjXW1ZxO+BgDlY6DXwj20i0V8eB4SenDQ00WEaxfiIQPcxg==}
     engines: {node: '>= 0.12.0'}
     dependencies:

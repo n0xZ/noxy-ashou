@@ -7,6 +7,7 @@ export default defineNuxtConfig({
 		'@sidebase/nuxt-auth',
 	],
 	srcDir: 'src/',
+	alias: { '~/*': './src/*' },
 	googleFonts: {
 		download: true,
 		families: { Inter: true },
