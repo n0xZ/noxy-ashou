@@ -23,6 +23,7 @@
     "@ark-ui/vue": "^0.5.3",
     "@prisma/client": "^5.0.0",
     "next-auth": "4.21.1",
-    "tailwindcss-animate": "^1.0.6"
+    "tailwindcss-animate": "^1.0.6",
+    "zod": "^3.21.4"
   }
 }
