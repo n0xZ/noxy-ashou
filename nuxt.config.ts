@@ -14,12 +14,14 @@ export default defineNuxtConfig({
 	postcss: { plugins: { tailwindcss: {}, autoprefixer: {} } },
 	alias: { '~/*': './src/*' },
 	css: ['~/assets/css/tailwind.css'],
+
 	app: {
 		head: {
 			htmlAttrs: { class: 'dark' },
-			bodyAttrs: { class: 'dark:bg-[#171717] dark:text-[#fafaf9]' },
+			bodyAttrs: { class: 'bg-background text-primary' },
 		},
 		pageTransition: { name: 'page', mode: 'out-in' },
 	},
+	runtimeConfig: { baseUrl: process.env.NUXT_BASE_URL },
 	experimental: { typedPages: true },
 })
