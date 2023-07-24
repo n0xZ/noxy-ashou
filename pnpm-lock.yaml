@@ -47,8 +47,8 @@ devDependencies:
     specifier: ^1.36.1
     version: 1.36.1
   '@sidebase/nuxt-auth':
-    specifier: 0.6.0-beta.3
-    version: 0.6.0-beta.3(next-auth@4.21.1)(vue@3.3.4)
+    specifier: 0.5.0
+    version: 0.5.0(next-auth@4.21.1)
   '@types/node':
     specifier: ^18.16.19
     version: 18.16.19
@@ -1605,16 +1605,13 @@ packages:
       rollup: 3.26.3
     dev: true
 
-  /@sidebase/nuxt-auth@0.6.0-beta.3(next-auth@4.21.1)(vue@3.3.4):
-    resolution: {integrity: sha512-r0XU2HOUTdzrbxO9nHmP4qvkhCPLL2HdJSfrDn6tsfvxQTo0Aq/5JuPwjP5xu1DhkV9YcolLfFRWjH8tbzUIrQ==}
+  /@sidebase/nuxt-auth@0.5.0(next-auth@4.21.1):
+    resolution: {integrity: sha512-Zq0laKbRjX3luAJrkSTYE9gkLttFO5LiWB9qq5xiYQGmtKxY9cu8sk9KeUVZ3z6shjEqHdtwM5FFCKGGvwVALA==}
     peerDependencies:
       next-auth: ^4.21.1
     dependencies:
       '@nuxt/kit': 3.6.5
-      '@vueuse/core': 9.13.0(vue@3.3.4)
       defu: 6.1.2
-      h3: 1.7.1
-      knitwork: 1.0.0
       next-auth: 4.21.1(next@13.4.10)(react-dom@18.2.0)(react@18.2.0)
       nitropack: 2.5.2
       requrl: 3.0.2
@@ -1629,12 +1626,10 @@ packages:
       - '@planetscale/database'
       - '@upstash/redis'
       - '@vercel/kv'
-      - '@vue/composition-api'
       - debug
       - encoding
       - rollup
       - supports-color
-      - vue
     dev: true
 
   /@sideway/address@4.1.4:
@@ -1747,10 +1742,6 @@ packages:
 
   /@types/resolve@1.20.2:
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
-    dev: true
-
-  /@types/web-bluetooth@0.0.16:
-    resolution: {integrity: sha512-oh8q2Zc32S6gd/j50GowEjKLoOVOwHP/bWVjKJInBwQqdOYMdPrf1oVlelTlyfFK3CKxL1uahMDAr+vy8T7yMQ==}
     dev: true
 
   /@unhead/dom@1.1.32:
@@ -1959,31 +1950,6 @@ packages:
 
   /@vue/shared@3.3.4:
     resolution: {integrity: sha512-7OjdcV8vQ74eiz1TZLzZP4JwqM5fA94K6yntPS5Z25r9HDuGNzaGdgvwKYq6S+MxwF0TFRwe50fIR/MYnakdkQ==}
-
-  /@vueuse/core@9.13.0(vue@3.3.4):
-    resolution: {integrity: sha512-pujnclbeHWxxPRqXWmdkKV5OX4Wk4YeK7wusHqRwU0Q7EFusHoqNA/aPhB6KCh9hEqJkLAJo7bb0Lh9b+OIVzw==}
-    dependencies:
-      '@types/web-bluetooth': 0.0.16
-      '@vueuse/metadata': 9.13.0
-      '@vueuse/shared': 9.13.0(vue@3.3.4)
-      vue-demi: 0.14.5(vue@3.3.4)
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: true
-
-  /@vueuse/metadata@9.13.0:
-    resolution: {integrity: sha512-gdU7TKNAUVlXXLbaF+ZCfte8BjRJQWPCa2J55+7/h+yDtzw3vOoGQDRXzI6pyKyo6bXFT5/QoPE4hAknExjRLQ==}
-    dev: true
-
-  /@vueuse/shared@9.13.0(vue@3.3.4):
-    resolution: {integrity: sha512-UrnhU+Cnufu4S6JLCPZnkWh0WwZGUp72ktOF2DFptMlOs3TOdVv8xJN53zhHGARmVOsz5KqOls09+J1NR6sBKw==}
-    dependencies:
-      vue-demi: 0.14.5(vue@3.3.4)
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: true
 
   /@webassemblyjs/ast@1.11.6:
     resolution: {integrity: sha512-IN1xI7PwOvLPgjcf180gC1bqn3q/QaOCwYUahIOhbYUu8KA/3tw2RT/T0Gidi1l7Hhj5D/INhJxiICObqpMu4Q==}
@@ -8253,6 +8219,7 @@ packages:
         optional: true
     dependencies:
       vue: 3.3.4
+    dev: false
 
   /vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
