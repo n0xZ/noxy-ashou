@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	devtools: { enabled: true },
-	modules: ['@nuxtjs/google-fonts', '@sidebase/nuxt-auth'],
+	modules: ['@nuxtjs/google-fonts', '@sidebase/nuxt-auth', 'nuxt-icon'],
 	googleFonts: {
 		download: true,
 		families: { Inter: true },
