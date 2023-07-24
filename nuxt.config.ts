@@ -11,6 +11,7 @@ export default defineNuxtConfig({
 		enableGlobalAppMiddleware: true,
 	},
 	srcDir: 'src/',
+	postcss: { plugins: { tailwindcss: {}, autoprefixer: {} } },
 	alias: { '~/*': './src/*' },
 	css: ['~/assets/css/tailwind.css'],
 	app: {
