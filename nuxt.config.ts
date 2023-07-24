@@ -1,19 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 	devtools: { enabled: true },
-	modules: [
-		'@nuxtjs/tailwindcss',
-		'@nuxtjs/google-fonts',
-		'@sidebase/nuxt-auth',
-	],
-	srcDir: 'src/',
-	alias: { '~/*': './src/*' },
-
+	modules: ['@nuxtjs/google-fonts', '@sidebase/nuxt-auth'],
 	googleFonts: {
 		download: true,
 		families: { Inter: true },
 		useStylesheet: true,
 	},
+	auth: {
+		enableGlobalAppMiddleware: true,
+	},
+	srcDir: 'src/',
+	alias: { '~/*': './src/*' },
+	css: ['~/assets/css/tailwind.css'],
 	app: {
 		head: {
 			htmlAttrs: { class: 'dark' },
