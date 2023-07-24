@@ -8,6 +8,7 @@ export default defineNuxtConfig({
 	],
 	srcDir: 'src/',
 	alias: { '~/*': './src/*' },
+
 	googleFonts: {
 		download: true,
 		families: { Inter: true },
@@ -18,6 +19,7 @@ export default defineNuxtConfig({
 			htmlAttrs: { class: 'dark' },
 			bodyAttrs: { class: 'dark:bg-[#171717] dark:text-[#fafaf9]' },
 		},
+		pageTransition: { name: 'page', mode: 'out-in' },
 	},
 	experimental: { typedPages: true },
 })
