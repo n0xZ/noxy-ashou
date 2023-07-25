@@ -1,6 +1,6 @@
 <script setup lang="ts">
-	definePageMeta({ auth:false})
-	useSeoMeta({ title: 'Iniciar sesión en Ashou' })
+	definePageMeta({ auth: false })
+	useSeoMeta({ title: 'Ashou - Sign in' })
 	const { signIn } = useAuth()
 	const runtime = useRuntimeConfig()
 	const callbackUrl = runtime.app.baseURL + 'home'
@@ -21,7 +21,7 @@
 					})
 				"
 			>
-				<span>Iniciar sesión desde Github</span>
+				<span>Sign in via Github</span>
 			</button>
 		</section>
 	</main>
