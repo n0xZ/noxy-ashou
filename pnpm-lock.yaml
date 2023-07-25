@@ -29,6 +29,9 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.6
     version: 1.0.6(tailwindcss@3.3.3)
+  valibot:
+    specifier: ^0.2.0
+    version: 0.2.0
   zod:
     specifier: ^3.21.4
     version: 3.21.4
@@ -7998,6 +8001,10 @@ packages:
   /uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
+
+  /valibot@0.2.0:
+    resolution: {integrity: sha512-SEc1NIKm0AI2D6moW6pV9MII12FSLBhQG1EPT8IxB+XnnlAbWB2IFqZ6mSa+I0FCei2QloLPAw0VNUi4ZW7xwQ==}
+    dev: false
 
   /validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
