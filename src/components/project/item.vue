@@ -9,20 +9,29 @@
 </script>
 
 <template>
-	<NuxtLink
+	<article
 		:to="projectPath"
-		class="flex flex-col justify-between w-full h-32 gap-1 p-3 rounded-md shadow-md"
+		class="flex flex-col justify-between w-full h-full p-3 space-y-1 rounded-md shadow-md min-h-[9rem]"
 	>
-		<aside class="flex flex-col space-y-2">
-			<h2 class="font-medium">{{ props.project.name }}</h2>
+		<aside class="flex flex-col mb-3 space-y-2">
+			<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+				{{ props.project.name }}
+			</h3>
 			<p class="text-sm text-primary/50">{{ props.project.description }}</p>
 		</aside>
-		<a
-			:href="props.project.siteUrl"
-			target="_blank"
-			rel="noreferrer"
-			class="self-end w-full p-2 text-center text-white rounded-md xl:w-1/6 place-self-end bg-secondary-foreground"
-			>Visit site</a
-		>
-	</NuxtLink>
+		<aside class="flex flex-col items-center justify-end mt-3 space-y-1 xl:space-x-1 xl:mt-0 xl:flex-row">
+			<NuxtLink
+				:to="projectPath"
+				class="w-full p-2 text-center text-white rounded-sm hover:opacity-90 xl:w-1/6 place-self-end bg-secondary-foreground"
+				>View Project</NuxtLink
+			>
+			<a
+				:href="props.project.siteUrl"
+				target="_blank"
+				rel="noreferrer"
+				class="w-full p-2 text-center text-white rounded-sm hover:opacity-90 xl:w-1/6 place-self-end bg-secondary-foreground"
+				>Visit site</a
+			>
+		</aside>
+	</article>
 </template>
