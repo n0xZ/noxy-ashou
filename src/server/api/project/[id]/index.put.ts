@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { prisma } from '~/db/prisma'
+import { updateProject } from '@/server/models/project.server'
 import { createProjectSchema } from '~/utils/zod'
 
 // It updates a project based on its ID. Every field should be optional.
@@ -15,9 +15,11 @@ export default defineEventHandler(async (ev) => {
 			siteUrl,
 		}: Partial<z.infer<typeof createProjectSchema>> =
 			createProjectSchema.parse(body)
-		const updatedProject = await prisma.project.update({
-			data: { description, name, siteUrl },
-			where: { id: params.id },
+		const updatedProject = await updateProject({
+			description,
+			name,
+			siteUrl,
+			id: params.id,
 		})
 		return { updatedProject }
 	} catch (e) {

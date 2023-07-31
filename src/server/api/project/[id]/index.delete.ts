@@ -1,4 +1,4 @@
-import { prisma } from '~/db/prisma'
+import { deleteProject } from '@/server/models/project.server'
 
 // It deletes  a project based on its ID
 export default defineEventHandler(async (ev) => {
@@ -6,7 +6,7 @@ export default defineEventHandler(async (ev) => {
 		const params = ev.context.params
 		if (!params)
 			throw createError({ statusCode: 400, statusMessage: 'Missing ID' })
-		const deletedUser = await prisma.project.delete({ where: { id: params.id } })
+		const deletedUser = await deleteProject({ id: params.id })
 		return { deletedUser }
 	} catch (e) {
 		if (e instanceof Error)
