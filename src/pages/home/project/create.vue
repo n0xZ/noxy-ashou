@@ -62,6 +62,7 @@
 					type="text"
 					placeholder="My awesome project"
 					v-model="formFields.name"
+					:disabled="isLoading"
 				/>
 				<UiFormError>{{
 					containsErrors('name') ? errorFromField('name') : null
@@ -77,6 +78,7 @@
 					type="text"
 					placeholder="My awesome project is awesome, but quite odd!"
 					v-model="formFields.description"
+					:disabled="isLoading"
 				/>
 				<UiFormError>{{
 					containsErrors('description') ? errorFromField('description') : null
@@ -92,12 +94,19 @@
 					type="url"
 					placeholder="https://my-awesome-project.whateverelse"
 					v-model="formFields.siteUrl"
+					:disabled="isLoading"
 				/>
 				<UiFormError>{{
 					containsErrors('siteUrl') ? errorFromField('siteUrl') : null
 				}}</UiFormError>
 			</UiFormField>
-			<UiButton :disabled="isLoading" type="submit"> Create new project </UiButton>
+			<UiButton :disabled="isLoading" type="submit">
+				<template v-if="isLoading">
+					<UiSpinner />
+					<span>Creating...</span>
+				</template>
+				<span v-else>Create new project</span></UiButton
+			>
 		</form>
 	</main>
 </template>
