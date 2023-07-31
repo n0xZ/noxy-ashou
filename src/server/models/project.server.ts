@@ -1,5 +1,5 @@
 import { prisma } from '../db/prisma'
-import { ProjectOutput } from '../utils/valibot'
+import { ProjectOutput } from '../../utils/valibot'
 
 export async function projectsByUserCredential({ email }: { email?: string }) {
 	try {
@@ -9,7 +9,14 @@ export async function projectsByUserCredential({ email }: { email?: string }) {
 		if (e instanceof Error) console.error(e)
 	}
 }
-
+export async function projectById({ id }: { id: string }) {
+	try {
+		const projects = await prisma.project.findUnique({ where: { id } })
+		return { projects }
+	} catch (e) {
+		if (e instanceof Error) console.error(e)
+	}
+}
 export async function createProject({
 	description,
 	name,
