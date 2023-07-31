@@ -1,6 +1,6 @@
 import { getServerSession } from '#auth'
 import { prisma } from '~/db/prisma'
-import { createProjectSchema } from '~/utils/zod'
+import { createProjectSchema } from '~/utils/valibot'
 
 // It creates an project with its name, description and siteUrl, and its related user.
 export default defineEventHandler(async (ev) => {

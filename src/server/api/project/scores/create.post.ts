@@ -1,13 +1,13 @@
-import { z } from 'zod'
+import { object, string, minLength } from 'valibot'
 import { prisma } from '~/db/prisma'
 
-export const lighthouseScoreSchema = z.object({
-	lcpScore: z.string(),
-	fcpScore: z.string(),
-	ttiScore: z.string(),
-	blockingTimeScore: z.string(),
-	siScore: z.string(),
-	clsScore: z.string(),
+export const lighthouseScoreSchema = object({
+	lcpScore: string([minLength(1, 'This field is required')]),
+	fcpScore: string([minLength(1, 'This field is required')]),
+	ttiScore: string([minLength(1, 'This field is required')]),
+	blockingTimeScore: string([minLength(1, 'This field is required')]),
+	siScore: string([minLength(1, 'This field is required')]),
+	clsScore: string([minLength(1, 'This field is required')]),
 })
 
 // It creates an post based on Lighthouse API Result.
