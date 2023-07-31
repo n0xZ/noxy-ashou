@@ -1,5 +1,5 @@
 <template>
-	<aside class="flex flex-col justify-center space-y-3 max-w-4xl">
+	<aside class="flex flex-col justify-center w-full space-y-3">
 		<slot />
 	</aside>
 </template>
