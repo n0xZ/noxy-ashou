@@ -1,5 +1,5 @@
 import { object, string, minLength } from 'valibot'
-import { prisma } from '~/db/prisma'
+import { prisma } from '@/server/db/prisma'
 
 export const lighthouseScoreSchema = object({
 	lcpScore: string([minLength(1, 'This field is required')]),

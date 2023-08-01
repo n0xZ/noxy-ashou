@@ -1,5 +1,5 @@
 import { getServerSession } from '#auth'
-import { projectsByUserCredential } from '../../../models/project.server'
+import { projectsByUserCredential } from '../../models/project.server'
 
 // This  should return projects based on user credentials, related from its session
 export default defineEventHandler(async (ev) => {
@@ -8,5 +8,6 @@ export default defineEventHandler(async (ev) => {
 	const projects = await projectsByUserCredential({
 		email: sess?.user?.email ?? '',
 	})
+
 	return { projects }
 })

@@ -1,5 +1,5 @@
 import { getServerSession } from '#auth'
-import { createProject } from '@/models/project.server'
+import { createProject } from '@/server/models/project.server'
 import { createProjectSchema } from '~/utils/valibot'
 
 // It creates an project with its name, description and siteUrl, and its related user.
