@@ -19,6 +19,7 @@
 			if (result.success) {
 				const newProject = await $fetch('/api/project', {
 					body: JSON.stringify({ ...formFields.value }),
+					method: 'POST',
 					headers: { 'content-type': 'application/json' },
 				})
 				if (newProject) isLoading.value = false
