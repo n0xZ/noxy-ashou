@@ -23,5 +23,5 @@ export default defineNuxtConfig({
 		pageTransition: { name: 'page', mode: 'out-in' },
 	},
 	runtimeConfig: { baseUrl: process.env.NUXT_BASE_URL },
-	experimental: { typedPages: true },
+	experimental: { typedPages: true, componentIslands: true },
 })
