@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import { Project } from '@prisma/client'
-	import ProjectItem from './item.vue'
+	import ProjectItem from './item.server.vue'
 	type Props = {
 		projects: Project[]
 	}
