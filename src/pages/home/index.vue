@@ -1,10 +1,9 @@
 <script setup lang="ts">
 	useSeoMeta({ title: 'Ashou - Home' })
 
-	const { data, pending } = useLazyAsyncData('projects', async () => {
-		const { projects } = await $fetch('/api/project')
-
-		return { projects }
+	const { data, pending } = useFetch('/api/project', {
+		headers: { 'content-type': 'application/json' },
+		responseType: 'json',
 	})
 </script>
 
@@ -17,7 +16,7 @@
 		</h2>
 		<ProjectSkeleton v-if="pending" />
 		<ProjectList
-			v-else-if="!pending && data && data.projects && data.projects.length !== 0"
+			v-else-if="!pending && data?.projects && data.projects.length !== 0"
 			:projects="data.projects"
 		/>
 		<ProjectEmpty v-else />
