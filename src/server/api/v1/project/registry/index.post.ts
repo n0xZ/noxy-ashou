@@ -19,7 +19,7 @@ export default defineEventHandler(async (ev) => {
 			throw createError({ statusCode: 400, statusMessage: 'Missing ID' })
 		const { ...registryMetadata } = registrySchema.parse(body)
 
-		const projectRegistry = await prisma.lighthouseScore.create({
+		const projectRegistry = await prisma.registry.create({
 			data: {
 				...registryMetadata,
 				project: { connect: { id: params.projectId } },

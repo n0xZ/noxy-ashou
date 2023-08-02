@@ -1,5 +1,5 @@
 import { getServerSession } from '#auth'
-import { projectsByUserCredential } from '../../models/project.server'
+import { projectsByUserCredential } from '@/server/models/project.server'
 
 // This  should return projects based on user credentials, related from its session
 export default defineEventHandler(async (ev) => {
