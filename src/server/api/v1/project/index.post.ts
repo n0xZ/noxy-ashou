@@ -12,14 +12,14 @@ export default defineEventHandler(async (ev) => {
 		const body = await readBody(ev)
 
 		const { description, name, siteUrl } = createProjectSchema.parse(body)
-		const project = createProject({
+		const project = await createProject({
 			description,
 			name,
 			siteUrl,
 			email: sess.user?.email ?? '',
 		})
 
-		return { project }
+		return project
 	} catch (e) {
 		if (e instanceof Error)
 			throw createError({ message: e.message, statusCode: 500 })
