@@ -3,7 +3,10 @@ import { ProjectOutput } from '../../utils/valibot'
 
 export async function projectsByUserCredential({ email }: { email?: string }) {
 	try {
-		const projects = await prisma.project.findMany({ where: { user: { email } } })
+		const projects = await prisma.project.findMany({
+			where: { user: { email } },
+			orderBy: { createdAt: 'desc' },
+		})
 		return projects
 	} catch (e) {
 		if (e instanceof Error) console.error(e)
