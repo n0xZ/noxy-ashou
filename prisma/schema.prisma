@@ -55,11 +55,12 @@ model Project{
   name String
   description String?
   siteUrl String
+    createdAt DateTime @default(now())
   user User @relation(fields: [id], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  scores LighthouseScore[]
+  registries Registry[]
 }
-model LighthouseScore{
-  id         String    @id @default(cuid())
+model Registry{
+    id         String    @id @default(cuid())
   fcpScore String
   lcpScore String
   clsScore String
