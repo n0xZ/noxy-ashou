@@ -1,7 +1,7 @@
 import { object, string, minLength } from 'valibot'
 import { prisma } from '@/server/db/prisma'
 
-export const lighthouseScoreSchema = object({
+export const registrySchema = object({
 	lcpScore: string([minLength(1, 'This field is required')]),
 	fcpScore: string([minLength(1, 'This field is required')]),
 	ttiScore: string([minLength(1, 'This field is required')]),
@@ -10,19 +10,22 @@ export const lighthouseScoreSchema = object({
 	clsScore: string([minLength(1, 'This field is required')]),
 })
 
-// It creates an post based on Lighthouse API Result.
+// It creates an Registry based on Lighthouse audit result.
 export default defineEventHandler(async (ev) => {
 	try {
 		const body = await readBody(ev)
 		const params = ev.context.params
 		if (!params)
 			throw createError({ statusCode: 400, statusMessage: 'Missing ID' })
-		const { ...scores } = lighthouseScoreSchema.parse(body)
+		const { ...registryMetadata } = registrySchema.parse(body)
 
-		const projectScores = await prisma.lighthouseScore.create({
-			data: { ...scores, project: { connect: { id: params.projectId } } },
+		const projectRegistry = await prisma.lighthouseScore.create({
+			data: {
+				...registryMetadata,
+				project: { connect: { id: params.projectId } },
+			},
 		})
-		return { projectScores }
+		return { projectRegistry }
 	} catch (e) {
 		if (e instanceof Error) {
 			throw createError({ statusCode: 400, statusMessage: e.message })
