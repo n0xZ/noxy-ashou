@@ -11,8 +11,8 @@ export async function projectsByUserCredential({ email }: { email?: string }) {
 }
 export async function projectById({ id }: { id: string }) {
 	try {
-		const projects = await prisma.project.findUnique({ where: { id } })
-		return { projects }
+		const existingProject = await prisma.project.findUnique({ where: { id } })
+		return existingProject
 	} catch (e) {
 		if (e instanceof Error) console.error(e)
 	}
