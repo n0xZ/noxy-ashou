@@ -1,10 +1,7 @@
 <script setup lang="ts">
-	useSeoMeta({ title: 'Ashou - Home' })
 
-	const { data, pending } = useFetch('/api/project', {
-		headers: { 'content-type': 'application/json' },
-		responseType: 'json',
-	})
+	useSeoMeta({ title: 'Ashou - Home' })
+	const { data, pending } = await useGetProjects()
 </script>
 
 <template>

@@ -1,71 +1,26 @@
 <script setup lang="ts">
-	import { ProjectOutput, createProjectSchema } from '@/utils/valibot'
-	import { Project } from '@prisma/client'
-	import { ValiError, safeParse } from 'valibot'
+	import { useUpdateProject } from 'composables/projects'
 
-	useSeoMeta({ title: 'Ashou - Update existing project' })
 	const route = useRoute('home-project-update-id')
-	const router = useRouter()
-	const config = useRuntimeConfig()
 	const id = route.params.id
-	const { data } = await useAsyncData(`project-by-id-${id}`, async () => {
-		const data = await $fetch(`/api/project/${id}`)
-		return data
+	const { data: project } = await useGetProjectById(id)
+	const { formErrors, formFields, isLoading, update } = useUpdateProject({
+		data: project.value,
+		id,
 	})
-	const formFields = ref<ProjectOutput>({
-		name: data.value?.existingProject.projects?.name ?? '',
-		description: data.value?.existingProject.projects?.description ?? '',
-		siteUrl: data.value?.existingProject.projects?.siteUrl ?? '',
-	})
-	const formErrors = ref<ValiError>()
 
-	const isLoading = ref(false)
-	async function createProject() {
-		try {
-			isLoading.value = true
-			const result = safeParse(createProjectSchema, formFields.value)
-			if (result.success) {
-				const res = await fetch(`${config.app.baseURL}/api/project/${id}`, {
-					body: JSON.stringify({ ...formFields.value }),
-					method: 'PUT',
-					headers: { 'content-type': 'application/json' },
-				})
-				const newProject = (await res.json()) as { updatedProject: Project }
-				console.log(newProject)
-				if (newProject.updatedProject) {
-					isLoading.value = false
-					router.push('/home')
-				}
-			} else {
-				formErrors.value = result.error
-				isLoading.value = false
-			}
-		} catch (e) {
-			isLoading.value = false
-			if (e instanceof Error) {
-				throw createError(e)
-			}
-		}
-	}
-	const containsErrors = (key: keyof ProjectOutput) =>
-		formErrors.value?.issues &&
-		formErrors.value.issues.some((i) => i.path?.[0].key === key)
-
-	const errorFromField = (key: keyof ProjectOutput) => {
-		const error = formErrors.value?.issues?.find((i) => i.path?.[0].key === key)
-		return error?.message
-	}
+	useSeoMeta({ title: `Ashou - Update ${project.value?.existingProject?.name}` })
 </script>
 <template>
 	<main class="container w-full h-screen max-w-4xl mx-auto mt-5">
 		<form
-			@submit.prevent="createProject"
+			@submit.prevent="update"
 			class="flex flex-col justify-center w-full h-screen space-y-3"
 		>
 			<h2
 				class="pb-2 mb-4 text-3xl font-semibold tracking-tight text-center transition-colors border-b scroll-m-20 first:mt-0"
 			>
-				Update project: {{ data?.existingProject.projects?.name }}
+				Update project: {{ project?.existingProject?.name }}
 			</h2>
 			<UiFormField>
 				<UiFormLabel>Project name <span class="text-red-500">*</span></UiFormLabel>
@@ -78,7 +33,9 @@
 					:disabled="isLoading"
 				/>
 				<UiFormError>{{
-					containsErrors('name') ? errorFromField('name') : null
+					containsErrors('name', formErrors.issues)
+						? errorFromField('name', formErrors.issues)
+						: null
 				}}</UiFormError>
 			</UiFormField>
 			<UiFormField>
@@ -94,7 +51,9 @@
 					:disabled="isLoading"
 				/>
 				<UiFormError>{{
-					containsErrors('description') ? errorFromField('description') : null
+					containsErrors('description', formErrors.issues)
+						? errorFromField('description', formErrors.issues)
+						: null
 				}}</UiFormError>
 			</UiFormField>
 			<UiFormField>
@@ -110,10 +69,12 @@
 					:disabled="isLoading"
 				/>
 				<UiFormError>{{
-					containsErrors('siteUrl') ? errorFromField('siteUrl') : null
+					containsErrors('siteUrl', formErrors.issues)
+						? errorFromField('siteUrl', formErrors.issues)
+						: null
 				}}</UiFormError>
 			</UiFormField>
-			<UiButton :disabled="isLoading" type="submit">
+			<UiButton class="space-x-2" :disabled="isLoading" type="submit">
 				<template v-if="isLoading">
 					<UiSpinner />
 					<span>Updating...</span>
