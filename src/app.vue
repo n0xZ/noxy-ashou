@@ -1,5 +1,5 @@
 <template>
-	<div class="font-inter">
+	<div class="antialiased font-inter">
 		<NuxtLoadingIndicator />
 		<NuxtPage />
 	</div>
