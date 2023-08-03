@@ -20,7 +20,6 @@ export const useCreateProject = () => {
 	})
 	const formErrors = ref<ValiError>({} as ValiError)
 	const router = useRouter()
-	const config = useRuntimeConfig()
 	const isLoading = ref(false)
 	async function create() {
 		try {
