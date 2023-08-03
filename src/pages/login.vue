@@ -16,7 +16,7 @@
 			>
 				Sign in to Ashou!
 			</h2>
-			<UiParagraph
+			<UiParagraph class="text-center"
 				>You're close to organize your projects with its web metrics!</UiParagraph
 			>
 			<button
