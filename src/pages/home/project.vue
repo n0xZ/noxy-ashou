@@ -6,9 +6,7 @@
 <template>
 	<div class="h-full min-h-screen">
 		<section class="hidden h-full xl:flex lg:flex md:flex xl:flex-row">
-			<article
-				class="flex flex-col justify-between h-full min-h-screen w-96"
-			>
+			<article class="flex flex-col justify-between h-full min-h-screen w-96">
 				<div class="flex flex-col justify-center w-full h-full space-y-1">
 					<h1 class="mx-4 mt-2 text-lg font-bold text-center">Recent projects</h1>
 					<ProjectSidebarList
@@ -58,13 +56,7 @@
 				<NuxtPage />
 			</article>
 		</section>
-		<section class="relative h-full xl:hidden lg:hidden sm:hidden">
-			<aside class="w-full border-b-2">
-				<ProjectAccordionList
-					v-if="data && data.projects"
-					:projects="data.projects"
-				/>
-			</aside>
+		<section class="relative h-full xl:hidden lg:hidden">
 			<NuxtPage />
 		</section>
 	</div>
