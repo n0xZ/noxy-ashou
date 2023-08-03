@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { useUpdateProject } from 'composables/projects'
+	
 
 	const route = useRoute('home-project-update-id')
 	const id = route.params.id
