@@ -15,7 +15,7 @@
 
 <template>
 	<MenubarRoot>
-		<MenubarMenu value="avatar">
+		<MenubarMenu>
 			<MenubarTrigger
 				class="gap-1 font-semibold outline-none select-none data-[highlighted]:drop-shadow-md duration-100"
 			>
@@ -26,7 +26,7 @@
 			</MenubarTrigger>
 			<MenubarPortal>
 				<MenubarContent
-					class="min-w-[220px] bg-background rounded-md font-inter p-[5px] gap-3 animate-in duration-100"
+					class="min-w-[220px] bg-background z-0 rounded-md font-inter p-[5px] gap-3 animate-in duration-100"
 					align="start"
 					:side-offset="5"
 					:align-offset="-3"
@@ -42,11 +42,34 @@
 						<MenubarSubTrigger
 							class="group text-[13px] leading-none rounded flex hover:cursor-pointer items-center h-[25px] px-[10px] relative select-none outline-none data-[highlighted]:bg-secondary data-[disabled]:pointer-events-none"
 						>
-							<NuxtLink to="/home/project/create" class="flex flex-row items-center space-x-1">
+							<NuxtLink to="/home" class="flex flex-row items-center space-x-1 ">
+								<Icon name="material-symbols:arrow-back" class="w-4 h-4" />
+								<span>Return to home</span>
+							</NuxtLink>
+						</MenubarSubTrigger>
+						<MenubarSubTrigger
+							class="group text-[13px] leading-none rounded flex hover:cursor-pointer items-center h-[25px] px-[10px] relative select-none outline-none data-[highlighted]:bg-secondary data-[disabled]:pointer-events-none"
+						>
+							<NuxtLink
+								to="/home/project/create"
+								class="flex flex-row items-center space-x-1"
+							>
 								<Icon name="material-symbols:assignment-add" class="w-4 h-4" />
 								<span>New proyect</span>
 							</NuxtLink>
 						</MenubarSubTrigger>
+						<MenubarSubTrigger
+							class="group text-[13px] leading-none rounded flex hover:cursor-pointer items-center h-[25px] px-[10px] relative select-none outline-none data-[highlighted]:bg-secondary data-[disabled]:pointer-events-none"
+						>
+							<NuxtLink
+								to="/home/project/historial"
+								class="flex flex-row items-center space-x-1"
+							>
+								<Icon name="material-symbols:list-alt" class="w-4 h-4" />
+								<span>View historial</span>
+							</NuxtLink>
+						</MenubarSubTrigger>
+
 						<MenubarSubTrigger
 							class="group text-[13px] leading-none rounded flex flex-row space-x-1 hover:cursor-pointer items-center h-[25px] px-[10px] relative select-none outline-none data-[highlighted]:bg-secondary data-[disabled]:pointer-events-none"
 							@click="signOut({ callbackUrl: '/' })"
