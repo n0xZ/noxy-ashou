@@ -5,8 +5,17 @@ export const createProjectSchema = object({
 	description: string([minLength(3, 'Description is required')]),
 	siteUrl: string([url('Invalid site URL')]),
 })
-export type ProjectOutput = Output<typeof createProjectSchema>
+export const registrySchema = object({
+	lcpScore: string([minLength(1, 'This field is required')]),
+	fcpScore: string([minLength(1, 'This field is required')]),
+	ttiScore: string([minLength(1, 'This field is required')]),
+	blockingTimeScore: string([minLength(1, 'This field is required')]),
+	siScore: string([minLength(1, 'This field is required')]),
+	clsScore: string([minLength(1, 'This field is required')]),
+})
 
+export type ProjectOutput = Output<typeof createProjectSchema>
+export type RegistryOutput = Output<typeof registrySchema>
 // It returns an boolean if the key exists in the issues
 
 export const containsErrors = (key: keyof ProjectOutput, issues: Issues) =>
