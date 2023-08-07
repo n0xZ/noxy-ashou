@@ -52,6 +52,33 @@ export const useCreateProject = () => {
 	}
 	return { formErrors, create, isLoading, formFields }
 }
+export const useRemoveProject = () => {
+	const config = useRuntimeConfig()
+	const router = useRouter()
+	const isLoading = ref(false)
+	async function remove(id?: string) {
+		try {
+			isLoading.value = true
+			const res = await fetch(`http://localhost:3000/api/v1/project/${id}`, {
+				headers: {
+					'content-type': 'application/json',
+				},
+				method: 'DELETE',
+			})
+			const data = (await res.json()) as { deletedProject: Project }
+			if (data) {
+				isLoading.value = false
+				router.push('/home')
+			}
+		} catch (e) {
+			isLoading.value = false
+			if (e instanceof Error) {
+				throw createError(e)
+			}
+		}
+	}
+	return { remove, isLoading }
+}
 export const useUpdateProject = ({
 	data,
 	id,
@@ -74,7 +101,7 @@ export const useUpdateProject = ({
 			isLoading.value = true
 			const result = safeParse(createProjectSchema, formFields.value)
 			if (result.success) {
-				const res = await fetch(`${config.app.baseURL}/api/project/${id}`, {
+				const res = await fetch(`${config.app.baseURL}/api/v1/project/${id}`, {
 					body: JSON.stringify({ ...formFields.value }),
 					method: 'PUT',
 					headers: { 'content-type': 'application/json' },
