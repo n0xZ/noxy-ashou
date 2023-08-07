@@ -1,4 +1,12 @@
-import { object, string, minLength, url, Output, Issues } from 'valibot'
+import {
+	object,
+	string,
+	minLength,
+	url,
+	Output,
+	Issues,
+	optional,
+} from 'valibot'
 
 export const createProjectSchema = object({
 	name: string([minLength(3, 'Name is required')]),
@@ -6,12 +14,12 @@ export const createProjectSchema = object({
 	siteUrl: string([url('Invalid site URL')]),
 })
 export const registrySchema = object({
-	lcpScore: string([minLength(1, 'This field is required')]),
-	fcpScore: string([minLength(1, 'This field is required')]),
-	ttiScore: string([minLength(1, 'This field is required')]),
-	blockingTimeScore: string([minLength(1, 'This field is required')]),
-	siScore: string([minLength(1, 'This field is required')]),
-	clsScore: string([minLength(1, 'This field is required')]),
+	lcpScore: optional(string()),
+	fcpScore: optional(string()),
+	ttiScore: optional(string()),
+	blockingTimeScore: optional(string()),
+	siScore: optional(string()),
+	clsScore: optional(string()),
 })
 
 export type ProjectOutput = Output<typeof createProjectSchema>
