@@ -13,25 +13,25 @@
     "@nuxt/devtools": "latest",
     "@nuxtjs/google-fonts": "^3.0.2",
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@playwright/test": "^1.36.1",
+    "@playwright/test": "^1.36.2",
     "@sidebase/nuxt-auth": "0.5.0",
-    "@types/node": "^18.17.0",
+    "@types/node": "^18.17.1",
     "@types/pg": "^8.10.2",
     "dotenv": "^16.3.1",
     "nuxt": "^3.6.5",
     "nuxt-icon": "^0.4.2",
-    "prisma": "^5.0.0"
+    "prisma": "^5.1.1"
   },
   "dependencies": {
     "@ark-ui/vue": "^0.5.3",
     "@auth/prisma-adapter": "^1.0.1",
-    "@prisma/client": "^5.0.0",
+    "@prisma/client": "^5.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "next-auth": "4.21.1",
-    "radix-vue": "^0.1.10",
+    "radix-vue": "^0.1.17",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.6",
-    "valibot": "^0.2.0"
+    "valibot": "^0.2.1"
   }
 }
