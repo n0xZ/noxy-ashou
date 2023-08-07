@@ -5,11 +5,13 @@ import { ValiError, safeParse } from 'valibot'
 export const useGetProjects = async () =>
 	await useFetch<{ projects: Project[] }>('/api/v1/project', {
 		responseType: 'json',
+		key: 'projects',
 	})
 export const useGetProjectById = async (id: string) =>
 	await useFetch<{ existingProject?: Project }>('/api/v1/project/search', {
 		params: { id },
 		responseType: 'json',
+		key: `project-by-id-${id}`,
 	})
 
 export const useCreateProject = () => {
@@ -33,6 +35,7 @@ export const useCreateProject = () => {
 				})
 
 				if (newProject) {
+					refreshNuxtData('projects')
 					isLoading.value = false
 					router.push(`/home/project/${newProject.project.id}`)
 				}
