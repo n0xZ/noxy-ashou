@@ -56,7 +56,7 @@
 				<NuxtPage />
 			</article>
 		</section>
-		<section class="relative h-full xl:hidden lg:hidden">
+		<section class="relative h-screen xl:h-full xl:hidden lg:hidden">
 			<NuxtPage />
 		</section>
 	</div>
