@@ -6,8 +6,10 @@ export default defineEventHandler(async (ev) => {
 		const params = ev.context.params
 		if (!params)
 			throw createError({ statusCode: 400, statusMessage: 'Missing ID' })
-		const existingProject = await registriesByProjectId({ projectId: params.id })
-		return { existingProject }
+		const existingRegistries = await registriesByProjectId({
+			projectId: params.id,
+		})
+		return { existingRegistries }
 	} catch (e) {
 		if (e instanceof Error)
 			throw createError({ statusCode: 500, statusMessage: e.message })
