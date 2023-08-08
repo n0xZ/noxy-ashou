@@ -8,6 +8,7 @@ export const registriesByProjectId = async ({
 	try {
 		const registries = await prisma.registry.findMany({
 			where: { project: { projectId } },
+			orderBy: { createdAt: 'desc' },
 		})
 		return registries
 	} catch (e) {
