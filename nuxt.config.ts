@@ -22,6 +22,13 @@ export default defineNuxtConfig({
 		},
 		pageTransition: { name: 'page', mode: 'out-in' },
 	},
-	runtimeConfig: { baseUrl: process.env.NUXT_BASE_URL },
+	runtimeConfig: {
+		baseUrl: process.env.NUXT_BASE_URL,
+		public: {
+			API_URL: process.env.NUXT_BASE_API_URL,
+			PAGESPEED_API_URL: process.env.NUXT_PAGESPEED_API_URL,
+			PAGESPEED_API_KEY: process.env.NUXT_PAGESPEED_API_KEY,
+		},
+	},
 	experimental: { typedPages: true, componentIslands: true },
 })

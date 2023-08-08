@@ -52,14 +52,15 @@ export const useCreateProject = () => {
 	}
 	return { formErrors, create, isLoading, formFields }
 }
-export const useRemoveProject = () => {
+export const useRemoveProject = (id?: string) => {
 	const config = useRuntimeConfig()
+	const API_URL = config.public.API_URL
 	const router = useRouter()
 	const isLoading = ref(false)
-	async function remove(id?: string) {
+	async function remove() {
 		try {
 			isLoading.value = true
-			const res = await fetch(`http://localhost:3000/api/v1/project/${id}`, {
+			const res = await fetch(`${API_URL}/project/${id}`, {
 				headers: {
 					'content-type': 'application/json',
 				},
@@ -93,15 +94,15 @@ export const useUpdateProject = ({
 	})
 	const formErrors = ref<ValiError>({} as ValiError)
 	const config = useRuntimeConfig()
+	const API_URL = config.public.API_URL
 	const router = useRouter()
 	const isLoading = ref(false)
-
 	async function update() {
 		try {
 			isLoading.value = true
 			const result = safeParse(createProjectSchema, formFields.value)
 			if (result.success) {
-				const res = await fetch(`${config.app.baseURL}/api/v1/project/${id}`, {
+				const res = await fetch(`${API_URL}/project/${id}`, {
 					body: JSON.stringify({ ...formFields.value }),
 					method: 'PUT',
 					headers: { 'content-type': 'application/json' },

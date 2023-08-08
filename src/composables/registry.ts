@@ -1,30 +1,50 @@
-import { LighthouseAPIResult, Audits } from '@/types'
+import { LighthouseAPIResult } from '@/types'
 import { RegistryOutput } from '@/utils/valibot'
-export const useCreateRegistry = (id: string) => {
+import { Registry } from '@prisma/client'
+export const useCreateRegistry = (projectId: string) => {
+	const config = useRuntimeConfig()
+	const API_URL = config.public.API_URL
+	const PAGESPEED_API_URL = config.public.PAGESPEED_API_URL
 	const router = useRouter()
+	const isLoading = ref(false)
+	console.log(API_URL)
+	async function create({ siteUrl }: { siteUrl?: string }) {
+		try {
+			isLoading.value = true
+			const pageSpeedInsightRes = await fetch(
+				`'${PAGESPEED_API_URL}?url=${siteUrl}`
+			)
+			const pageSpeedData = (await pageSpeedInsightRes.json()) as {
+				apiResponse: LighthouseAPIResult
+			}
 
-	async function create({ siteUrl }: { siteUrl: string; projectId: string }) {
-		const pagedSpeedInsightRes = await fetch(
-			`'https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${siteUrl}`
-		)
-		const data = (await pagedSpeedInsightRes.json()) as {
-			apiResponse: LighthouseAPIResult
+			const { audits } = pageSpeedData.apiResponse.lighthouseResult
+			const parsedLighthouseScore: RegistryOutput = {
+				ttiScore: audits.interactive.displayValue,
+				blockingTimeScore: audits['total-blocking-time'].displayValue,
+				clsScore: audits['cumulative-layout-shift'].displayValue,
+				fcpScore: audits['first-contentful-paint'].displayValue,
+				lcpScore: audits['largest-contentful-paint'].displayValue,
+				siScore: audits['speed-index'].displayValue,
+			}
+			const apiRes = await fetch(`${API_URL}/project/${projectId}/registry`, {
+				headers: { 'content-type': 'application/json' },
+				body: JSON.stringify(parsedLighthouseScore),
+				method: 'POST',
+			})
+			const data = (await apiRes.json()) as { projectRegistry: Registry }
+			if (data) {
+				isLoading.value = false
+				router.push(
+					`/home/project/${projectId}/registry/${data.projectRegistry.id}`
+				)
+			}
+		} catch (e) {
+			isLoading.value = false
+			if (e instanceof Error) {
+				console.error(e.message)
+			}
 		}
-		data.apiResponse.lighthouseResult.audits.metrics
-		const { audits } = data.apiResponse.lighthouseResult
-		const parsedLighthouseScore: RegistryOutput = {
-			ttiScore: audits.interactive.displayValue,
-			blockingTimeScore: audits['total-blocking-time'].displayValue,
-			clsScore: audits['cumulative-layout-shift'].displayValue,
-			fcpScore: audits['first-contentful-paint'].displayValue,
-			lcpScore: audits['largest-contentful-paint'].displayValue,
-			siScore: audits['speed-index'].displayValue,
-		}
-		const apiRes = await $fetch('/api/v1/project/registry', {
-			body: JSON.stringify(parsedLighthouseScore),
-			method: 'POST',
-			responseType: 'json',
-		})
 	}
-	return { create }
+	return { create, isLoading }
 }
