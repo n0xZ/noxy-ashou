@@ -95,7 +95,7 @@ export interface BootupTime {
 	description: string
 	score: number | null
 	scoreDisplayMode: ScoreDisplayMode
-	displayValue?: string
+	displayValue: string
 	details?: BootupTimeDetails
 	numericValue: number
 	numericUnit: NumericUnit
@@ -266,7 +266,7 @@ export interface CumulativeLayoutShift {
 	description: string
 	score: number | null
 	scoreDisplayMode: ScoreDisplayMode
-	displayValue?: string
+	displayValue: string
 	details?: CumulativeLayoutShiftDetails
 	numericValue?: number
 	numericUnit?: string
@@ -483,7 +483,7 @@ export interface DuplicatedJavascript {
 	numericValue: number
 	numericUnit: NumericUnit
 	warnings?: any[]
-	displayValue?: string
+	displayValue: string
 }
 
 export interface DuplicatedJavascriptDetails {
@@ -528,7 +528,7 @@ export interface FontDisplay {
 	scoreDisplayMode: string
 	details?: FontDisplayDetails
 	warnings?: any[]
-	displayValue?: string
+	displayValue: string
 }
 
 export interface FontDisplayDetails {

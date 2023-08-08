@@ -14,12 +14,12 @@ export const createProjectSchema = object({
 	siteUrl: string([url('Invalid site URL')]),
 })
 export const registrySchema = object({
-	lcpScore: optional(string()),
-	fcpScore: optional(string()),
-	ttiScore: optional(string()),
-	blockingTimeScore: optional(string()),
-	siScore: optional(string()),
-	clsScore: optional(string()),
+	lcpScore: string(),
+	fcpScore: string(),
+	ttiScore: string(),
+	blockingTimeScore: string(),
+	siScore: string(),
+	clsScore: string(),
 })
 
 export type ProjectOutput = Output<typeof createProjectSchema>
