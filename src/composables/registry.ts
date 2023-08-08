@@ -7,7 +7,7 @@ export const useCreateRegistry = (projectId: string) => {
 	const PAGESPEED_API_URL = config.public.PAGESPEED_API_URL
 	const router = useRouter()
 	const isLoading = ref(false)
-	console.log(API_URL)
+
 	async function create({ siteUrl }: { siteUrl?: string }) {
 		try {
 			isLoading.value = true
