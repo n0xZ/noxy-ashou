@@ -1,6 +1,7 @@
 import { LighthouseAPIResult } from '@/types'
 import { RegistryOutput } from '@/utils/valibot'
 import { Registry } from '@prisma/client'
+
 export const useCreateRegistry = (projectId: string) => {
 	const config = useRuntimeConfig()
 	const API_URL = config.public.API_URL
@@ -47,4 +48,15 @@ export const useCreateRegistry = (projectId: string) => {
 		}
 	}
 	return { create, isLoading }
+}
+
+export const useGetRegistriesByProjectId = async (projectId: string) => {
+	const config = useRuntimeConfig()
+	const API_URL = config.public.API_URL
+	const data = await fetch(`${API_URL}/project/${projectId}/registry`, {
+		method: 'GET',
+		headers: { 'content-type': 'application/json' },
+	})
+	const resp = (await data.json()) as { existingRegistries: Registry[] }
+	return resp.existingRegistries
 }
