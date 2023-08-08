@@ -1,6 +1,10 @@
 import { prisma } from '@/server/db/prisma'
 import { RegistryOutput } from '@/utils/valibot'
-export const registriesByProjectId = async (projectId: string) => {
+export const registriesByProjectId = async ({
+	projectId,
+}: {
+	projectId: string
+}) => {
 	try {
 		const registries = await prisma.registry.findMany({
 			where: { project: { projectId } },
