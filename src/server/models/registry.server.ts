@@ -18,7 +18,7 @@ export const registriesByProjectId = async ({
 }
 export const registryById = async ({ id }: { id: string }) => {
 	try {
-		const existingRegistry = await prisma.registry.findMany({
+		const existingRegistry = await prisma.registry.findUnique({
 			where: { id },
 		})
 		return existingRegistry
