@@ -22,7 +22,7 @@ export default defineEventHandler(async (ev) => {
 		const projectRegistry = await prisma.registry.create({
 			data: {
 				...registryMetadata,
-				project: { connect: { id: params.projectId } },
+				project: { connect: { id: params.id } },
 			},
 		})
 		return { projectRegistry }
