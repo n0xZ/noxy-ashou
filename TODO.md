@@ -8,7 +8,7 @@
 - [ ✅ ] Implement View projects page
 - [ ✅ ] Implement View project page
 - [ 🚧 ] Implement Registry history page
-- [ 🚧 ] Implement Create Registry feature
+- [ ✅ ] Implement Create Registry feature
 - [ 🚧 ] Implement Delete Registry feature
 
 ## Back

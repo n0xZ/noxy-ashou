@@ -25,6 +25,7 @@ export default defineEventHandler(async (ev) => {
 				project: { connect: { id: params.id } },
 			},
 		})
+		console.log(projectRegistry)
 		return { projectRegistry }
 	} catch (e) {
 		if (e instanceof Error) {

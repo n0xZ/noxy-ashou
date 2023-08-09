@@ -10,7 +10,7 @@ export default defineEventHandler(async (ev) => {
 			throw createError({ statusCode: 400, statusMessage: 'Missing ID' })
 
 		const deletedProjectRegistry = await prisma.registry.delete({
-			where: { id: params.id },
+			where: { id: params.registryId },
 		})
 		return { deletedProjectRegistry }
 	} catch (e) {

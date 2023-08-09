@@ -7,7 +7,7 @@ export const registriesByProjectId = async ({
 }) => {
 	try {
 		const registries = await prisma.registry.findMany({
-			where: { project: { projectId } },
+			where: { project: { id: projectId } },
 			orderBy: { createdAt: 'desc' },
 		})
 		return registries
@@ -16,7 +16,17 @@ export const registriesByProjectId = async ({
 		}
 	}
 }
-
+export const registryById = async ({ id }: { id: string }) => {
+	try {
+		const existingRegistry = await prisma.registry.findMany({
+			where: { id },
+		})
+		return existingRegistry
+	} catch (e) {
+		if (e instanceof Error) {
+		}
+	}
+}
 export const createRegistry = async (
 	input: RegistryOutput & { projectId: string }
 ) => {
