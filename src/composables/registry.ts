@@ -73,7 +73,7 @@ export const useGetRegistryById = async (registryId: string) => {
 			headers: { 'content-type': 'application/json' },
 		})
 
-		const resp = (await data.json()) as { existingRegistries: Registry }
-		return resp.existingRegistries
+		const resp = (await data.json()) as { existingRegistry: Registry }
+		return resp.existingRegistry
 	})
 }
