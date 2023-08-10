@@ -1,5 +1,10 @@
 <script setup lang="ts">
-	definePageMeta({ auth: false })
+	definePageMeta({
+		auth: {
+			unauthenticatedOnly: true,
+			navigateAuthenticatedTo: '/home',
+		},
+	})
 	useSeoMeta({ title: 'Ashou - Sign in' })
 	const { signIn } = useAuth()
 	const runtime = useRuntimeConfig()
