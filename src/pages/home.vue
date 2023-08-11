@@ -8,7 +8,7 @@
 
 <template>
 	<div>
-		<header class="p-5 ">
+		<header class="p-5 border-b-2">
 			<nav
 				class="container flex flex-row items-center justify-between max-w-4xl mx-auto"
 			>

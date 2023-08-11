@@ -10,7 +10,7 @@
 
 <template>
 	<article
-		class="flex flex-col justify-between w-full h-full p-3 space-y-1 rounded-md shadow-md min-h-[9rem]"
+		class="flex flex-col justify-between w-full h-full p-3 space-y-1 rounded-md border-2 border-primary/5 min-h-[9rem]"
 	>
 		<aside class="flex flex-col mb-3 space-y-2">
 			<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">

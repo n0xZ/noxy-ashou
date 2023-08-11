@@ -13,14 +13,14 @@
 </script>
 <template>
 	<article
-		class="flex flex-col justify-center w-full h-full p-3 space-y-1 rounded-md shadow-md min-h-[9rem] border-2 border-primary/5"
+		class="flex flex-col justify-center w-full h-full p-3 space-y-1 rounded-md shadow-md min-h-[11rem] border-2 border-primary/5"
 	>
 		<span class="flex flex-row items-center space-x-1">
 			<time :datetime="registryDate.toString()">{{ registryTime }}</time>
 			<p>({{ registry.id }})</p>
 		</span>
 		<NuxtLink
-			class="w-full p-2 text-center rounded-sm text-background hover:opacity-90 xl:w-1/6 place-self-end bg-secondary-foreground"
+			class="self-end w-full p-2 text-center rounded-sm text-background hover:opacity-90 xl:w-1/6 place-self-end bg-secondary-foreground"
 			:to="registryHref"
 			>View registry</NuxtLink
 		>
