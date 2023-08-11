@@ -23,7 +23,7 @@
 		>
 			<NuxtLink
 				:to="projectPath"
-				class="w-full p-2 text-center text-white rounded-sm hover:opacity-90 xl:w-1/6 place-self-end bg-secondary-foreground"
+				class="w-full p-2 text-center rounded-sm text-background hover:opacity-90 xl:w-1/6 place-self-end bg-secondary-foreground"
 				>View Project</NuxtLink
 			>
 		</aside>
