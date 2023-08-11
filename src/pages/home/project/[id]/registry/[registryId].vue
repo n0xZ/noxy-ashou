@@ -1,11 +1,23 @@
 <script setup lang="ts">
 	const route = useRoute('home-project-id-registry-registryId')
 	const registryId = route.params.registryId
+	const router = useRouter()
+	const navigateBackward = () => router.go(-1)
+
 	const { data: registry } = await useGetRegistryById(registryId)
 	useSeoMeta({ title: 'Ashou - View registry results' })
 </script>
 <template>
-	<section class="flex flex-col h-full min-h-screen place-items-center">
+	<main
+		class="flex flex-col justify-center w-full h-full max-w-4xl space-y-1 sm:min-h-screen"
+	>
+		<aside class="flex flex-row items-center p-5 mb-3 space-x-1">
+			<Icon
+				name="carbon:arrow-left"
+				class="duration-100 ease-in-out w-7 h-7 hover:cursor-pointer hover:opacity-70"
+				@click="navigateBackward"
+			/>
+		</aside>
 		<h2
 			class="pb-2 text-3xl font-semibold tracking-tight text-center transition-colors border-b scroll-m-20 first:mt-0"
 		>
@@ -34,5 +46,5 @@
 				<a href="https://web.dev/tags/performance/" class="underline">this out</a>
 			</UIParagraph>
 		</aside>
-	</section>
+	</main>
 </template>
