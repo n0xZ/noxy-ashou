@@ -13,9 +13,9 @@
 </script>
 <template>
 	<article
-		class="flex flex-col justify-center w-full h-full p-3 space-y-1 rounded-md shadow-md min-h-[11rem] border-2 border-primary/5"
+		class="flex flex-col justify-between h-full p-3 space-y-1 rounded-md shadow-md min-h-[8rem] border-2 border-primary/5"
 	>
-		<span class="flex flex-row items-center space-x-1">
+		<span class="flex flex-row items-center pt-3 space-x-1 font-medium">
 			<time :datetime="registryDate.toString()">{{ registryTime }}</time>
 			<p>({{ registry.id }})</p>
 		</span>
