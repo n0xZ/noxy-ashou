@@ -22,7 +22,6 @@ export default defineNuxtConfig({
 
 	app: {
 		head: {
-			htmlAttrs: { class: 'dark' },
 			bodyAttrs: { class: 'bg-background text-primary' },
 		},
 		pageTransition: { name: 'page', mode: 'out-in' },
