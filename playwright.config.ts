@@ -28,7 +28,7 @@ export default defineConfig({
 
 		/* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 		trace: 'on-first-retry',
-		baseURL: process.env.NUXT_BASE_URL,
+		baseURL: process.env.PLAYWRIGHT_TEST_BASE_URL ?? 'http://localhost:3000',
 	},
 
 	/* Configure projects for major browsers */
