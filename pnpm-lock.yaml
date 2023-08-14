@@ -58,6 +58,9 @@ devDependencies:
   '@types/pg':
     specifier: ^8.10.2
     version: 8.10.2
+  '@vueuse/core':
+    specifier: ^10.3.0
+    version: 10.3.0(vue@3.3.4)
   '@vueuse/nuxt':
     specifier: ^10.3.0
     version: 10.3.0(nuxt@3.6.5)(vue@3.3.4)
