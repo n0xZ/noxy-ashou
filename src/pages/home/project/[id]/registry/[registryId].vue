@@ -41,10 +41,10 @@
 			<RegistryResult label="Time to interactive" :metric="registry.ttiScore" />
 		</article>
 		<aside class="p-5 border-t-2 border-primary/5">
-			<UIParagraph class="text-center">
-				For more information about these metrics, you can check
+			<UiParagraph class="text-center">
+				For more information about web metrics, you can check
 				<a href="https://web.dev/tags/performance/" class="underline">this out</a>
-			</UIParagraph>
+			</UiParagraph>
 		</aside>
 	</main>
 </template>
