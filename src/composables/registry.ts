@@ -14,7 +14,7 @@ export const useCreateRegistry = (projectId: string) => {
 		try {
 			isLoading.value = true
 			const pageSpeedInsightRes = await fetch(
-				`${PAGESPEED_API_URL}?url=${siteUrl}&key=${PAGESPEED_API_KEY}`
+				`${PAGESPEED_API_URL}?url=${siteUrl}&key=${PAGESPEED_API_KEY}&strategy=mobile`
 			)
 			const pageSpeedData: LighthouseAPIResult = await pageSpeedInsightRes.json()
 
