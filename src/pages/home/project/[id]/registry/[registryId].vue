@@ -5,7 +5,7 @@
 	const navigateBackward = () => router.go(-1)
 
 	const { data: registry } = await useGetRegistryById(registryId)
-	useSeoMeta({ title: 'Ashou - View registry results' })
+	useSeoMeta({ title: 'Webmetrics - View registry results' })
 </script>
 <template>
 	<main
