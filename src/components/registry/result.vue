@@ -4,13 +4,7 @@
 		label: string
 	}
 	const props = defineProps<Props>()
-	const resultStatus = computed(() =>
-		Number(props.metric.replace('s', '')) < 2
-			? 'success'
-			: Number(props.metric.replace('s', '')) < 3
-			? 'warning'
-			: 'error'
-	)
+	const { resultStatus } = useMetricStatus(props.metric)
 	const metricStyles = ` text-sm text-center ${
 		resultStatus.value === 'success'
 			? 'text-emerald-500'
