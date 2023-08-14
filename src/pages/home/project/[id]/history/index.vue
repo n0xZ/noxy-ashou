@@ -5,6 +5,7 @@
 
 	const navigateBackward = () => router.go(-1)
 	const { data } = await useGetRegistriesByProjectId(id)
+	useSeoMeta({ title: 'Webmetrics - View project history' })
 </script>
 <template>
 	<main class="w-full h-full mt-3">

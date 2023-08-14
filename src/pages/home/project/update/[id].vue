@@ -9,7 +9,7 @@
 		id,
 	})
 
-	useSeoMeta({ title: `Ashou - Update ${project.value?.existingProject?.name}` })
+	useSeoMeta({ title: `Webmetrics - Update ${project.value?.existingProject?.name}` })
 </script>
 <template>
 	<main class="container w-full h-screen max-w-4xl mx-auto mt-5">

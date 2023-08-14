@@ -9,12 +9,12 @@
 		}
 	})
 	useSeoMeta({
-		title: `Ashou | Proyecto actual: ${data?.value?.existingProject?.name}`,
+		title: `Webmetrics | Actual project: ${data?.value?.existingProject?.name}`,
 	})
 </script>
 <template>
 	<main
-		class="flex flex-col justify-center w-full h-full max-w-2xl space-y-3 sm:min-h-screen"
+		class="flex flex-col justify-center w-full h-full max-w-4xl space-y-3 sm:min-h-screen"
 	>
 		<h2
 			class="pb-2 mb-4 text-3xl font-semibold tracking-tight text-center transition-colors border-b scroll-m-20 first:mt-0"
