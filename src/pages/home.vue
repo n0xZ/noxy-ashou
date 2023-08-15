@@ -14,7 +14,14 @@
 			>
 				<NuxtLink to="/home/project" v-if="isRouteOnProjectPath">Projects</NuxtLink>
 				<NuxtLink to="/home" v-else>Home</NuxtLink>
-				<HomeMenubar />
+				<ul class="flex flex-row items-center space-x-4">
+					<li>
+						<ClientOnly>
+							<UiThemeSwitcher />
+						</ClientOnly>
+					</li>
+					<li><HomeMenubar /></li>
+				</ul>
 			</nav>
 		</header>
 

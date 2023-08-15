@@ -2,7 +2,7 @@
 	definePageMeta({
 		auth: false,
 	})
-	useSeoMeta({ title: 'Bienvenid@ a Ashou!' })
+	useSeoMeta({ title: 'Welcome to Webmetrics!' })
 </script>
 
 <template>
@@ -11,7 +11,7 @@
 			<nav
 				class="container flex flex-row items-center justify-between max-w-2xl mx-auto"
 			>
-				<NuxtLink to="/">Ashou</NuxtLink>
+				<NuxtLink to="/">Webmetrics</NuxtLink>
 				<NuxtLink to="/login" class="underline opacity-60" >Sign in</NuxtLink>
 			</nav>
 		</header>
@@ -19,10 +19,10 @@
 			class="container flex flex-col justify-center h-screen max-w-4xl mx-auto space-y-2 text-center"
 		>
 			<h1 class="text-4xl font-extrabold tracking-tight scroll-m-20 lg:text-5xl">
-				Optimize <span class="text-sky-500">web metrics</span> with Ashou
+				Optimize <span class="text-sky-500">web metrics</span> with Webmetrics
 			</h1>
 			<UiParagraph class="opacity-90">
-				With Ashou, you can define a web page registry, that contains web page
+				With Webmetrics, you can define a web page registry, that contains web page
 				metrics, and then you can compare each registry.
 			</UiParagraph>
 			<NuxtLink

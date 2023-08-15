@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-	useSeoMeta({ title: 'Ashou - Home' })
+	useSeoMeta({ title: 'Webmetrics - Home' })
 	const { data, pending } = await useGetProjects()
 </script>
 

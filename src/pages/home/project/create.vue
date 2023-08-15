@@ -1,7 +1,7 @@
 <script setup lang="ts">
-	import { ProjectOutput, containsErrors, errorFromField } from '@/utils/valibot'
+	import {  containsErrors, errorFromField } from '@/utils/valibot'
 
-	useSeoMeta({ title: 'Ashou - Create new project' })
+	useSeoMeta({ title: 'Webmetrics - Create new project' })
 	const { create, formErrors, formFields, isLoading } = useCreateProject()
 </script>
 

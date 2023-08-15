@@ -4,9 +4,11 @@
 </script>
 
 <template>
-	<div class="h-full min-h-screen">
+	<div class="h-full">
 		<section class="hidden h-full xl:flex lg:flex md:flex xl:flex-row">
-			<article class="flex flex-col justify-between h-full min-h-screen w-96">
+			<article
+				class="flex flex-col justify-between h-full min-h-screen border-r-2 w-96"
+			>
 				<div class="flex flex-col justify-center w-full h-full space-y-1">
 					<h1 class="mx-4 mt-2 text-lg font-bold text-center">Recent projects</h1>
 					<ProjectSidebarList
@@ -33,14 +35,6 @@
 						<Icon name="material-symbols:assignment-add" class="w-6 h-6" />
 						<span>New project</span></NuxtLink
 					>
-					<NuxtLink
-						to="/home/project/historial"
-						class="flex flex-row items-center justify-start w-full p-5 space-x-5 text-base font-medium duration-100 ease-in-out rounded-md hover:bg-primary/10"
-						active-class="text-white bg-primary"
-					>
-						<Icon name="material-symbols:list-alt" class="w-6 h-6" />
-						<span>View historial</span>
-					</NuxtLink>
 
 					<button
 						class="inline-flex items-center justify-start p-5 space-x-5 text-base font-medium transition-colors rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90"
@@ -52,8 +46,14 @@
 				</div>
 			</article>
 
-			<article class="grid items-center w-full place-items-center bg-secondary">
-				<NuxtPage />
+			<article
+				class="w-full h-full min-h-screen place-items-center bg-secondary dark:bg-secondary/10"
+			>
+				<div
+					class="container grid w-full h-full max-w-6xl mx-auto mt-4 rounded-md shadow-sm place-items-center bg-background"
+				>
+					<NuxtPage />
+				</div>
 			</article>
 		</section>
 		<section class="relative h-screen xl:h-full xl:hidden lg:hidden">
